@@ -1,7 +1,7 @@
 language: ruby
 
 before_install:
-  - bundle install --path=vendor/bundle --bin-stubs
+  - bundle install --path=vendor/bundle --binstubs
 #  - apt-get update && apt-get -y install mysql-client
 #  - gem install mysql2 toml-rb net-ssh-gateway rubocop
 
