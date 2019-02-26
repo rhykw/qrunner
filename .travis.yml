@@ -1,9 +1,10 @@
 language: ruby
 
 before_install:
-  - apt-get update && apt-get -y install mysql-client
-  - gem install mysql2 toml-rb net-ssh-gateway rubocop
+  - bundle install --path=vendor/bundle --bin-stubs
+#  - apt-get update && apt-get -y install mysql-client
+#  - gem install mysql2 toml-rb net-ssh-gateway rubocop
 
 script:
-  - rubocop lib
-  - ruby lib/qrunner.rb
+  - ./bin/rubocop lib
+  - bundle exec ruby lib/qrunner.rb
