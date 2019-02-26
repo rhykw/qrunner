@@ -13,7 +13,10 @@ def run_query
   @port = gateway.open(host, port, gateway_local_port) if gateway? && !local_exec?
   transaction do
     mysql_client.query(query)
-    mysql_client.store_result while mysql_client.next_result
+    while mysql_client.next_result
+      puts mysql_client.query_info_string
+      mysql_client.store_result
+    end
   end
 rescue SystemExit => e
   puts e
